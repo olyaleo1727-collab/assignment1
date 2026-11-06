@@ -2,11 +2,10 @@ import java.awt.*;
 
 public abstract class Car {
     private int nrDoors; // Number of doors on the car
-    protected double enginePower; // Engine power of the car
+    private double enginePower; // Engine power of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
     private double currentSpeed; // The current speed of the car
-
 
     public Car(int nrDoors, Color color,double enginePower,  String modelName) {
         this.nrDoors = nrDoors;
@@ -15,9 +14,7 @@ public abstract class Car {
         this.modelName = modelName;
     }
 
-    public int getNrDoors() {
-        return nrDoors;
-    }
+    public int getNrDoors() { return nrDoors;}
     public double getEnginePower() {
         return enginePower;
     }
@@ -36,11 +33,11 @@ public abstract class Car {
     public void stopEngine() {
         currentSpeed = 0;
     }
-    // TODO fix this method according to lab pm
+    // TODO Fix in task 4
     public void gas(double amount) {
         incrementSpeed(amount);
     }
-    // TODO fix this method according to lab pm
+    // TODO Fix in task 4
     public void brake(double amount) {
         decrementSpeed(amount);
     }
