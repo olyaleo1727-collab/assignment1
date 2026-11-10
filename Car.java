@@ -1,11 +1,16 @@
 import java.awt.*;
 
-public abstract class Car {
+public abstract class Car implements Movable {
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
     private double currentSpeed; // The current speed of the car
+
+    //position and direction
+    private double x = 0.0; // position
+    private double y = 0.0; // position
+    private int direction = 0; // direction
 
     public Car(int nrDoors, Color color,double enginePower,  String modelName) {
         this.nrDoors = nrDoors;
@@ -14,14 +19,18 @@ public abstract class Car {
         this.modelName = modelName;
     }
 
-    public int getNrDoors() { return nrDoors;}
+    public int getNrDoors() {
+        return nrDoors;}
     public double getEnginePower() {
+
         return enginePower;
     }
-    public double getCurrentSpeed() {
+    public double getCurrentSpeed()
+    {
         return currentSpeed;
     }
     public Color getColor() {
+
         return color;
     }
     public void setColor(Color clr) {
@@ -50,4 +59,31 @@ public abstract class Car {
     public void decrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
+
+    //implementing Movable methods (task 2)
+
+    @Override
+    public void move(){
+        if(direction == 0){ // north
+            y += getCurrentSpeed();
+        } else if(direction == 1) { //east
+            x += getCurrentSpeed();
+        } else if(direction == 2){ //south
+            y -= getCurrentSpeed();
+        } else if(direction == 3){ //west
+            x -= getCurrentSpeed();
+
+        }
+    }
+
+    @Override
+    public void turnLeft(){
+        direction = (direction + 3) %4 ;
+    }
+    @Override
+    public void turnRight(){
+        direction = (direction + 1) %4 ;
+    }
+
+
 }

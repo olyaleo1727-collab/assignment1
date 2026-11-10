@@ -1,4 +1,5 @@
-package PACKAGE_NAME;
-
 public interface Movable {
+    void move();
+    void turnLeft();
+    void turnRight();
 }
