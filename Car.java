@@ -33,6 +33,13 @@ public abstract class Car implements Movable {
 
         return color;
     }
+
+    // Added get methods to retrieve position data for move test unit.
+
+    public double getX() {return x;}
+    public double getY() {return y;}
+    public int getDirection() {return direction;}
+
     public void setColor(Color clr) {
         color = clr;
     }
