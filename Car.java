@@ -66,9 +66,22 @@ public abstract class Car implements Movable {
 
     public void incrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+
+        //conditional added to satisfy currentSpeed not exceeding enginePower.
+
+        if (currentSpeed > this.getEnginePower()) {
+            currentSpeed = this.getEnginePower();
+        }
     }
+
     public void decrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+
+        //conditional added to satisfy currentSpeed not becoming negative.
+
+        if (currentSpeed < 0){
+            currentSpeed = 0;
+        }
     }
 
     //implementing Movable methods (task 2)
