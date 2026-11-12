@@ -50,12 +50,13 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
     }
     // TODO Fix in task 4
-    public double gas(double amount) {
-        if (amount>1 || amount<0){
+    public void gas(double amount) {
+        if (amount>1) {
             amount=1;
+        }else if (amount<0){
+            amount = 0;
         }
         incrementSpeed(amount);
-        return amount;
     }
     // TODO Fix in task 4
     public void brake(double amount) {
@@ -66,9 +67,22 @@ public abstract class Car implements Movable {
 
     public void incrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+
+        //conditional added to satisfy currentSpeed not exceeding enginePower.
+
+        if (currentSpeed > this.getEnginePower()) {
+            currentSpeed = this.getEnginePower();
+        }
     }
+
     public void decrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+
+        //conditional added to satisfy currentSpeed not becoming negative.
+
+        if (currentSpeed < 0){
+            currentSpeed = 0;
+        }
     }
 
     //implementing Movable methods (task 2)
