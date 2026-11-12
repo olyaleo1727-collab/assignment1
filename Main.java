@@ -5,5 +5,7 @@ public class Main {
     Car Saab95 = new Saab95(2, Color.red, 125);
     Car Volvo240 = new Volvo240(4, Color.black,100);
 
+
+
     }
 }

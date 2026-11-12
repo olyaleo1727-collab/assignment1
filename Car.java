@@ -50,8 +50,12 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
     }
     // TODO Fix in task 4
-    public void gas(double amount) {
+    public double gas(double amount) {
+        if (amount>1 || amount<0){
+            amount=1;
+        }
         incrementSpeed(amount);
+        return amount;
     }
     // TODO Fix in task 4
     public void brake(double amount) {
