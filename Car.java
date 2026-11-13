@@ -60,6 +60,11 @@ public abstract class Car implements Movable {
     }
     // TODO Fix in task 4
     public void brake(double amount) {
+        if (amount>1){
+            amount = 1;
+        } else if (amount<0){
+            amount = 0;
+        }
         decrementSpeed(amount);
     }
 
